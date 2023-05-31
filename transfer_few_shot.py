@@ -3,6 +3,7 @@ from argparse import ArgumentParser
 from functools import partial
 from copy import deepcopy
 from collections import defaultdict
+from pathlib import Path
 
 import numpy as np
 
@@ -17,7 +18,7 @@ import ignite.distributed as idist
 from datasets import load_fewshot_datasets
 from models import load_backbone, load_mlp
 from trainers import collect_features, SSObjective
-from utils import Logger
+from utils import Logger, get_engine_mock
 from transforms import extract_diff
 
 from sklearn.linear_model import LogisticRegression
@@ -60,7 +61,14 @@ class FewShotBatchSampler(torch.utils.data.Sampler):
 def main(local_rank, args):
     cudnn.benchmark = True
     device = idist.device()
-    logger = Logger(None)
+    logdir = Path(args.ckpt).parent
+
+    args.origin_run_name = logdir.name
+    logger = Logger(
+        logdir=logdir, resume=True, wandb_suffix=f"{args.N}-way_{args.K}-shot_{args.dataset}", args=args,
+        job_type="eval_few-shot"
+    )
+    engine_mock = get_engine_mock(ckpt_path=args.ckpt)
 
     # DATASETS
     datasets = load_fewshot_datasets(dataset=args.dataset,
@@ -105,9 +113,16 @@ def main(local_rank, args):
         if (i+1) % 10 == 0:
             logger.log_msg(f'{i+1:3d} | {acc:.4f} (mean: {np.mean(all_accuracies):.4f})')
 
+
     avg = np.mean(all_accuracies)
     std = np.std(all_accuracies) * 1.96 / np.sqrt(len(all_accuracies))
     logger.log_msg(f'mean: {avg:.4f}±{std:.4f}')
+    logger.log(
+        engine=engine_mock, global_step=i,
+        **{
+            f"test_few-shot_{args.N}-way_{args.K}-shot/{args.dataset}": np.mean(all_accuracies)
+        }
+    )
 
 
 if __name__ == '__main__':
