@@ -1,4 +1,4 @@
-# Augmentation-aware Self-Supervised-Learning with Guided Projector
+# [Augmentation-aware Self-Supervised-Learning with Guided Projector](https://arxiv.org/abs/2306.06082)
 
 Under review.
 
@@ -36,6 +36,8 @@ pip install scipy tensorboard kornia==0.4.1 sklearn wandb
 
 ## Pretraining
 
+We pretrain the ResNet-50 models on the ImageNet-100 subset of ImageNet. You can [download ImageNet here](https://www.kaggle.com/c/imagenet-object-localization-challenge), and [create the ImageNet-100 subset using this repository](https://github.com/danielchyeh/ImageNet-100-Pytorch/tree/main). 
+
 We provide a command for pretraining MoCo-v2 + CASSLE. To train the Baseline model, replace the `--aug-inj-type` option to `proj-none`. To train [AugSelf](https://arxiv.org/abs/2111.09613), use `--aug-inj-type proj-none --ss-crop 0.5 --ss-color 0.5`. 
 For using other frameworks like SimCLR, use the `--framework` option.
 
@@ -71,3 +73,19 @@ This codebase is built upon [this code](https://github.com/hankook/AugSelf) for 
 **[Improving Transferability of Representations via Augmentation-Aware Self-Supervision](https://arxiv.org/abs/2111.09613)** 
 by Hankook Lee, Kibok Lee, Kimin Lee, Honglak Lee, and Jinwoo Shin. 
 We are very thankful to the authors for providing an excellent-quality reproducible code to the community and guiding us on running it.
+
+## Citation
+
+If you find our work interesting, please cite it:
+
+```
+@misc{przewiezlikowski2023augmentationaware,
+      title={Augmentation-aware Self-supervised Learning with Guided Projector}, 
+      author={Marcin Przewięźlikowski and Mateusz Pyla and Bartosz Zieliński and Bartłomiej Twardowski and Jacek Tabor and Marek Śmieja},
+      year={2023},
+      eprint={2306.06082},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+
+```
