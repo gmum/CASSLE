@@ -1,6 +1,6 @@
-# [Augmentation-aware Self-Supervised-Learning with Guided Projector](https://arxiv.org/abs/2306.06082)
+# [Augmentation-aware Self-Supervised-Learning with Conditioned Projector](https://arxiv.org/abs/2306.06082)
 
-Under review.
+Presented at [NeurIPS 2023 Workshop: Self-Supervised Learning - Theory and Practice](https://sslneurips23.github.io/).
 
 
 **TL;DR:**  We condition the projector of self-supervised models with augmentation information and demonstrate that this improves their performance during transfer learning.
@@ -11,15 +11,11 @@ Under review.
 
 
 ## Overview
-Self-supervised learning (SSL) is a powerful technique for learning robust representations from unlabeled data. 
-By learning to remain invariant to applied data augmentations, methods such as SimCLR and MoCo are able to reach quality on par with supervised approaches. 
-However, this invariance may be harmful to solving some downstream tasks which depend on traits affected by augmentations used during pretraining, such as color. 
-In this paper, we propose to foster sensitivity to such characteristics in the representation space by modifying the projector network, a common component of self-supervised architectures. 
-Specifically, we supplement the projector with information about augmentations applied to images. 
-In order for the projector to take advantage of this auxiliary guidance when solving the SSL task, the feature extractor learns to preserve the augmentation information in its representations. 
-Our approach, coined **C**onditional **A**ugmentation-aware **S**elf-**s**upervised **Le**arning (**CASSLE**), is directly applicable to typical joint-embedding SSL methods regardless of their objective functions. 
-Moreover, it does not require major changes in the network architecture or prior knowledge of downstream tasks. 
-In addition to an analysis of sensitivity towards different data augmentations, we conduct a series of experiments, which show that CASSLE improves over various SSL methods, reaching state-of-the-art performance in multiple downstream tasks.
+Self-supervised learning (SSL) is a powerful technique for learning robust representations from unlabeled data. By learning to remain invariant to applied data augmentations, methods such as SimCLR and MoCo are able to reach quality on par with supervised approaches. However, this invariance may be harmful to solving some downstream tasks which depend on traits affected by augmentations used during pretraining, such as color. 
+
+In this paper, we propose to foster sensitivity to such characteristics in the representation space by modifying the projector network, a common component of self-supervised architectures. Specifically, we supplement the projector with information about augmentations applied to images. In order for the projector to take advantage of this auxiliary conditioning when solving the SSL task, the feature extractor learns to preserve the augmentation information in its representations. 
+
+Our approach, coined **C**onditional **A**ugmentation-aware **S**elf-**s**upervised **Le**arning (CASSLE), is directly applicable to typical joint-embedding SSL methods regardless of their objective functions. Moreover, it does not require major changes in the network architecture or prior knowledge of downstream tasks. In addition to an analysis of sensitivity towards different data augmentations, we conduct a series of experiments, which show that CASSLE improves over various SSL methods, reaching state-of-the-art performance in multiple downstream tasks.
 
 ## Checkpoints
 
@@ -29,7 +25,7 @@ We provide checkpoints for models pretrained with and without CASSLE in [this Go
 
 ```bash
 conda create -n CASSLE python=3.8 pytorch=1.7.1 torchvision=0.8.2 cudatoolkit=10.1 ignite -c pytorch
-conda activate AugSelf
+conda activate CASSLE
 pip install scipy tensorboard kornia==0.4.1 sklearn wandb
 ```
 
@@ -55,7 +51,8 @@ python pretrain_cond.py  \
 ## Evaluation
 
 Our main evaluation setups are linear evaluation on fine-grained classification datasets (Table 1).
-### linear evaluation
+
+### Linear evaluation
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python transfer_linear_eval.py \
@@ -80,7 +77,7 @@ If you find our work interesting, please cite it:
 
 ```
 @misc{przewiezlikowski2023augmentationaware,
-      title={Augmentation-aware Self-supervised Learning with Guided Projector}, 
+      title={Augmentation-aware Self-supervised Learning with Conditioned Projector}, 
       author={Marcin Przewięźlikowski and Mateusz Pyla and Bartosz Zieliński and Bartłomiej Twardowski and Jacek Tabor and Marek Śmieja},
       year={2023},
       eprint={2306.06082},
