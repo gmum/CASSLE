@@ -1,6 +1,6 @@
 # [Augmentation-aware Self-Supervised-Learning with Conditioned Projector](https://arxiv.org/abs/2306.06082)
 
-Presented at [NeurIPS 2023 Workshop: Self-Supervised Learning - Theory and Practice](https://sslneurips23.github.io/).
+Presented at [NeurIPS 2023 Workshop: Self-Supervised Learning - Theory and Practice](https://sslneurips23.github.io/) - check out the [poster](https://drive.google.com/file/d/1gQWumxhek1KB-FHTnTm522tpkf7y_Yhs/view?usp=drive_link)!
 
 
 **TL;DR:**  We condition the projector of self-supervised models with augmentation information and demonstrate that this improves their performance during transfer learning.
