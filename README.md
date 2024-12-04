@@ -2,6 +2,8 @@
 
 Presented at [NeurIPS 2023 Workshop: Self-Supervised Learning - Theory and Practice](https://sslneurips23.github.io/) - check out the [poster](https://drive.google.com/file/d/1gQWumxhek1KB-FHTnTm522tpkf7y_Yhs/view?usp=drive_link)!
 
+Full paper published in [Knowledge-Based Systems](https://www.sciencedirect.com/science/article/pii/S0950705124012061).
+
 
 **TL;DR:**  We condition the projector of self-supervised models with augmentation information and demonstrate that this improves their performance during transfer learning.
 
@@ -76,13 +78,16 @@ We are very thankful to the authors for providing an excellent-quality reproduci
 If you find our work interesting, please cite it:
 
 ```
-@misc{przewiezlikowski2023augmentationaware,
-      title={Augmentation-aware Self-supervised Learning with Conditioned Projector}, 
-      author={Marcin Przewięźlikowski and Mateusz Pyla and Bartosz Zieliński and Bartłomiej Twardowski and Jacek Tabor and Marek Śmieja},
-      year={2023},
-      eprint={2306.06082},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@article{przewiezlikowski2024augmentationaware,
+   title={Augmentation-aware self-supervised learning with conditioned projector},
+   volume={305},
+   ISSN={0950-7051},
+   url={http://dx.doi.org/10.1016/j.knosys.2024.112572},
+   DOI={10.1016/j.knosys.2024.112572},
+   journal={Knowledge-Based Systems},
+   publisher={Elsevier BV},
+   author={Przewięźlikowski, Marcin and Pyla, Mateusz and Zieliński, Bartosz and Twardowski, Bartłomiej and Tabor, Jacek and Śmieja, Marek},
+   year={2024},
+   month=dec, pages={112572} 
 }
-
 ```
