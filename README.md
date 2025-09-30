@@ -73,6 +73,8 @@ This codebase is built upon [this code](https://github.com/hankook/AugSelf) for 
 by Hankook Lee, Kibok Lee, Kimin Lee, Honglak Lee, and Jinwoo Shin. 
 We are very thankful to the authors for providing an excellent-quality reproducible code to the community and guiding us on running it.
 
+This research has been supported by the flagship project entitled “Artificial Intelligence Computing Center Core Facility” from the Priority Research Area DigiWorld under the Strategic Programme Excellence Initiative at Jagiellonian University, and by the Horizon Europe Programme (HORIZON-CL4-2022-HUMAN-02) under the project “ELIAS: European Lighthouse of AI for Sustainability”, GA no. 101120237. The research of Marcin Przewięźlikowski was supported by the National Science Centre (Poland), grant no. 2023/49/N/ST6/03268. The research of Marek Śmieja was supported by the National Science Centre (Poland) , grant no. 2022/45/B/ST6/01117. The research of Bartosz Zieliński is funded in part by National Science Centre (Poland) grant number 2022/47/B/ST6/03397. Bartłomiej Twardowski acknowledges the grant RYC2021-032765-I. We gratefully acknowledge Polish high-performance computing infrastructure PLGrid (HPC Centers: ACKCyfronet AGH) for providing computer facilities and support within computational grant no. PLG/2023/016303.
+
 ## Citation
 
 If you find our work interesting, please cite it:
